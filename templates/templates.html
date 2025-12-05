@@ -1,0 +1,57 @@
+<!doctype html>
+</ul>
+{% endif %}
+{% endwith %}
+
+
+<form action="/generate" method="post" enctype="multipart/form-data">
+<label>Full name<input name="full_name" value="{{ data.full_name }}"></label>
+<label>Email<input name="email" value="{{ data.email }}"></label>
+<label>Phone<input name="phone" value="{{ data.phone }}"></label>
+<label>Title<input name="title" value="{{ data.title }}"></label>
+<label>Location<input name="location" value="{{ data.location }}"></label>
+<label>Summary<textarea name="summary">{{ data.summary }}</textarea></label>
+
+
+<h3>Skills (comma separated)</h3>
+<input name="skills" value="{{ data.skills | join(', ') }}">
+
+
+<h3>Education (enter one per line, format: degree | institution | year | optional detail)</h3>
+<textarea name="education">{% for e in data.education %}{{ e.degree }} | {{ e.institution }} | {{ e.year }} | {{ e.detail if e.detail }}
+{% endfor %}</textarea>
+
+
+<h3>Projects (one per line: name | description | link)</h3>
+<textarea name="projects">{% for p in data.projects %}{{ p.name }} | {{ p.desc }} | {{ p.link if p.link }}
+{% endfor %}</textarea>
+
+
+<h3>Experience (one per line: role | company | duration | description)</h3>
+<textarea name="experience">{% for x in data.experience %}{{ x.role }} | {{ x.company }} | {{ x.duration }} | {{ x.desc }}
+{% endfor %}</textarea>
+
+
+<label>Photo<input type="file" name="photo"></label>
+
+
+<h3>Template choice</h3>
+<select name="template_choice">
+<option value="classic">Classic</option>
+<option value="modern">Modern</option>
+<option value="twocol">Two-column</option>
+<option value="minimal">Minimal</option>
+<option value="creative">Creative</option>
+</select>
+
+
+<h3>Download</h3>
+<label><input type="radio" name="download" value="html" checked>Preview HTML</label>
+<label><input type="radio" name="download" value="pdf">Download PDF</label>
+
+
+<button type="submit">Generate Resume</button>
+</form>
+</main>
+</body>
+</html>
