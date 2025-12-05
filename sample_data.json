@@ -1,0 +1,23 @@
+{
+"full_name": "Alex Johnson",
+"first_name": "Alex",
+"last_name": "Johnson",
+"title": "Software Engineer",
+"email": "alex.johnson@example.com",
+"phone": "+1 555 0100",
+"location": "San Francisco, CA",
+"summary": "Motivated software engineer with 3+ years building web applications.",
+"skills": ["Python", "Flask", "SQL", "Docker", "Git"],
+"education": [
+{"degree":"B.Sc. Computer Science","institution":"State University","year":"2020","detail":"GPA: 3.8/4.0"}
+],
+"projects": [
+{"name":"Resume Generator","desc":"Web app to assemble resumes from user inputs","link":"https://github.com/example/resume"}
+],
+"experience": [
+{"role":"Backend Developer","company":"TechCorp","duration":"2021 - Present","desc":"Built APIs and microservices."}
+],
+"certificates": ["AWS Certified Developer"],
+"languages": ["English", "Hindi"],
+"hobbies": ["Photography", "Chess"]
+}
