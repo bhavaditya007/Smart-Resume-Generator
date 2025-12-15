@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Resume</title>
+  <link rel="stylesheet" href="/static/css/templates.css">
+</head>
+
+<body class="template creative">
+
+<!-- HEADER -->
+<div style="text-align:center; margin-bottom:25px;">
+
+  {% if data.get('photo_base64') and data.get('photo_base64')[0] %}
+  <img
+    src="data:image/jpeg;base64,{{ data.get('photo_base64')[0] }}"
+    alt="Profile Photo"
+    class="profile-photo"
+  >
+{% endif %}
+
+
+
+  <h1>{{ data.get('full_name', [''])[0] }}</h1>
+
+  <p>
+    {{ data.get('email', [''])[0] }}
+    {% if data.get('phone') %} | {{ data.get('phone')[0] }} {% endif %}
+    {% if data.get('location') %} | {{ data.get('location')[0] }} {% endif %}
+  </p>
+</div>
+
+<hr>
+
+<!-- SUMMARY -->
+{% if data.get('summary') and data.get('summary')[0] %}
+<h2>Summary</h2>
+<p>{{ data.get('summary')[0] }}</p>
+{% endif %}
+
+<!-- SKILLS -->
+{% if data.get('skills') %}
+<h2>Skills</h2>
+<ul>
+  {% for skill in data.get('skills') %}
+    {% if skill %}
+      <li>{{ skill }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+<!-- EDUCATION -->
+{% if data.get('education_degree') %}
+<h2>Education</h2>
+
+{% for i in range(data.get('education_degree') | length) %}
+  {% if data.get('education_degree')[i] %}
+    <p>
+      <strong>{{ data.get('education_degree')[i] }}</strong><br>
+      {{ data.get('education_institution')[i] }}
+      {% if data.get('education_year')[i] %}
+        | {{ data.get('education_year')[i] }}
+      {% endif %}
+      {% if data.get('education_cgpa')[i] %}
+        | CGPA: {{ data.get('education_cgpa')[i] }}
+      {% endif %}
+    </p>
+  {% endif %}
+{% endfor %}
+{% endif %}
+
+<!-- EXPERIENCE -->
+{% if data.get('experience_role') %}
+<h2>Experience</h2>
+
+{% for i in range(data.get('experience_role') | length) %}
+  {% if data.get('experience_role')[i] %}
+    <p>
+      <strong>{{ data.get('experience_role')[i] }}</strong><br>
+      {{ data.get('experience_company')[i] }}
+      {% if data.get('experience_duration')[i] %}
+        | {{ data.get('experience_duration')[i] }}
+      {% endif %}
+      <br>
+      {{ data.get('experience_desc')[i] }}
+    </p>
+  {% endif %}
+{% endfor %}
+{% endif %}
+
+<!-- CERTIFICATES -->
+{% if data.get('certificates') %}
+<h2>Certificates</h2>
+<ul>
+  {% for cert in data.get('certificates') %}
+    {% if cert %}
+      <li>{{ cert }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+</body>
+</html>

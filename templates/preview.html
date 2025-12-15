@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Preview</title>
+</head>
+<body>
+
+<a href="/">← Back</a>
+
+<form action="/download/pdf" method="post" style="float:right">
+  <textarea name="resume_html" style="display:none;">
+{{ resume_html | safe }}
+  </textarea>
+  <button type="submit">Download PDF</button>
+</form>
+
+<hr>
+
+{{ resume_html | safe }}
+
+</body>
+</html>
