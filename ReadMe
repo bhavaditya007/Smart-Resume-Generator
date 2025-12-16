@@ -1,0 +1,15 @@
+# Smart Resume Generator
+
+A Flask-based web application that allows users to generate professional resumes using multiple templates.
+
+## Features
+- Dynamic form inputs (skills, education, experience, certificates)
+- Multiple resume templates
+- Resume preview
+- PDF export
+- Photo upload support
+
+## Tech Stack
+- Python (Flask)
+- HTML, CSS, JavaScript
+- Git & GitHub
